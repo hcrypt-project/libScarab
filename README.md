@@ -1,10 +1,15 @@
 Introduction
+============
 
 This is an implementation of a fully homomorphic encryption scheme using large integers. The mathematical foundation is based on work by C. Gentry [1] for the initial concept as well as N. Smart and F. Vercauteren [2] for the integer-based approach used in this implementation.
 
 The library presented here is beta software and should not be used for any mission critical applications. No warranty expressed or implied is given.
+
 Installation and usage
+======================
+
 Requirements
+------------
 
 The following libraries are required for building hcrypt:
 
@@ -14,7 +19,9 @@ The following libraries are required for building hcrypt:
         MPFR — http://www.mpfr.org/ (required by FLINT)
 
 The library expects the flint headers under in your include directory. Also, copy zn_poly/include/*.h to ./zn_poly/src/ relative to your include path.
+
 Building
+--------
 
 The compilation is done using make.
 
@@ -36,6 +43,7 @@ fhe_fulladd(mpz_t sum, mpz_t c_out, mpz_t a, mpz_t b, mpz_t c_in, fhe_pk_t pk); 
 fhe_halfadd(mpz_t sum, mpz_t c_out, mpz_t a, mpz_t b, fhe_pk_t pk); 	Add with carry out
 
 References
+==========
 
 [1] C. Gentry, A fully homomorphic encryption scheme
 
@@ -44,6 +52,7 @@ References
 [3] H. Perl, M. Brenner and M. Smith, POSTER: An Implementation of the Fully Homomorphic Smart-Vercauteren Crypto-System
 
 License
+=======
 
 The source code is published under a MIT license:
 
