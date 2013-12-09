@@ -38,7 +38,9 @@ fhe_halfadd(mpz_t sum, mpz_t c_out, mpz_t a, mpz_t b, fhe_pk_t pk); 	Add with ca
 References
 
 [1] C. Gentry, A fully homomorphic encryption scheme
+
 [2] N. Smart and F. Vercauteren, Fully Homomorphic Encryption with Relatively Small Key and Ciphertext Sizes
+
 [3] H. Perl, M. Brenner and M. Smith, POSTER: An Implementation of the Fully Homomorphic Smart-Vercauteren Crypto-System
 
 License
