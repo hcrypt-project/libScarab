@@ -10,45 +10,80 @@ To get started quickly, do the following:
 3. Install m4 (sudo apt-get install m4) and lzip (sudo apt-get install lzip)
 
 4. Install gmp
+5. 
 lzip -d gmp-5.1.1.tar.lz
+
 tar xf gmp-5.1.1.tar
+
 cd gmp-5.1.1
+
 ./configure
+
 make
+
 make check #(never ever skip the checks!)
+
 sudo make install
+
 
 5. Install mpfr
+6. 
 tar xjf mpfr-3.1.1.tar.bz2
+
 cd mpfr-3.1.1
+
 make
+
 make check
+
 sudo make install
+
 
 6. Install mpir
+7. 
 tar xjf mpir-2.6.0.tar.bz2
+
 cd mpir-2.6.0
+
 ./configure
+
 make
+
 make check
+
 sudo make install
 
-7. Install flint (ok, this is perhaps quite strange)
+
+7. Install flint (ok, this is perhaps quite a bit strange)
+
 tar xf flint-1.6.tgz
+
 cd flint-1.6
+
 source flint_env
+
 make library
+
 sudo cp libflint.so /usr/local/lib
+
 sudo cp *.h /usr/local/include
+
 sudo mkdir -p /usr/local/include/zn_poly/src
+
 sudo cp zn_poly/include/*.h /usr/local/include/zn_poly/src/
 
 8. Run libscarab test
+9. 
 mkdir libscarab
+
 cd libscarab
+
 unzip ../libScarab-1.0.0.zip
+
 make
+
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
 ./integer-fhe
 
 ta-daaa!
