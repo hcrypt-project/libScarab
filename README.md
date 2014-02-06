@@ -3,13 +3,17 @@ Quick Action
 
 To get started quickly, do the following:
 
-1. Install Ubuntu 12.04 32 bit on a clean box, just to have a common ground (it should come with the default installation but make sure that gcc is installed)
+1: Install Ubuntu 12.04 32 bit on a clean box, just to have a common ground (it should come with the default installation but make sure that gcc is installed)
 
-2. Download libScarab-1.0.0.zip, gmp-5.1.1.tar.lz, flint-1.6.tgz, mpir-2.6.0.tar.bz2, mpfr-3.1.1.tar.bz2 from hcrypt.com and the linked web pages
+2: Download libScarab-1.0.0.zip, gmp-5.1.1.tar.lz, flint-1.6.tgz, mpir-2.6.0.tar.bz2, mpfr-3.1.1.tar.bz2 from hcrypt.com and the linked web pages
 
-3. Install m4 (sudo apt-get install m4) and lzip (sudo apt-get install lzip)
+3: Install m4 and lzip
 
-4. Install gmp
+3.1. sudo apt-get install m4 
+
+3.2. sudo apt-get install lzip
+
+4: Install gmp
  
 4.1. lzip -d gmp-5.1.1.tar.lz
 
@@ -25,7 +29,7 @@ To get started quickly, do the following:
 
 4.7. sudo make install
 
-5. Install mpfr
+5: Install mpfr
 
 5.1. tar xjf mpfr-3.1.1.tar.bz2
 
@@ -37,7 +41,7 @@ To get started quickly, do the following:
 
 5.5. sudo make install
 
-6. Install mpir
+6: Install mpir
 
 6.1. tar xjf mpir-2.6.0.tar.bz2
 
@@ -51,7 +55,7 @@ To get started quickly, do the following:
 
 6.6. sudo make install
 
-7. Install flint (ok, this is perhaps quite a bit strange)
+7: Install flint (ok, this is perhaps quite a bit strange)
 
 7.1. tar xf flint-1.6.tgz
 
@@ -69,7 +73,7 @@ To get started quickly, do the following:
 
 7.8. sudo cp zn_poly/include/*.h /usr/local/include/zn_poly/src/
 
-8. Run libscarab test
+8: Run libscarab test
 
 8.1. mkdir libscarab
 
