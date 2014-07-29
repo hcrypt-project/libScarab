@@ -1,2 +1,7 @@
 build/*
 lib/*
+bin/*
+
+*.o
+*.a
+*.so
