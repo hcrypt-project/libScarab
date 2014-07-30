@@ -9,15 +9,28 @@ cd lib
 
 # Download libs
 
-wget https://gmplib.org/download/gmp/gmp-6.0.0a.tar.lz
-wget http://www.flintlib.org/flint-1.6.tgz
-wget http://www.mpir.org/mpir-2.6.0.tar.bz2
-wget https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.1.tar.bz2
+if [ ! -f "gmp-6.0.0a.tar.lz" ]; then
+    wget https://gmplib.org/download/gmp/gmp-6.0.0a.tar.lz
+fi
+
+if [ ! -f "flint-1.6.tgz" ]; then
+    wget http://www.flintlib.org/flint-1.6.tgz
+fi
+
+if [ ! -f "mpir-2.6.0.tar.bz2" ]; then
+    wget http://www.mpir.org/mpir-2.6.0.tar.bz2
+fi
+
+if [ ! -f "mpfr-3.1.1.tar.bz2"]; then
+    wget https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.1.tar.bz2
+fi
 
 # Install GMP
 
-lzip -d gmp-6.0.0a.tar.lz
-tar xf gmp-6.0.0a.tar
+if [! -d "gmp-6.0.0"]; then
+    lzip -d gmp-6.0.0a.tar.lz
+    tar xf gmp-6.0.0a.tar
+fi
 
 cd gmp-6.0.0
 ./configure
@@ -28,7 +41,10 @@ cd ..
 
 # Install mpfr
 
-tar xjf mpfr-3.1.1.tar.bz2
+if [! -d "mpfr-3.1.1"]; then
+    tar xjf mpfr-3.1.1.tar.bz2
+fi
+
 cd mpfr-3.1.1
 make
 make check
@@ -37,7 +53,10 @@ cd ..
 
 # Install mpir
 
-tar xjf mpir-2.6.0.tar.bz2
+if [! -d "mpir-2.6.0"]; then
+    tar xjf mpir-2.6.0.tar.bz2
+fi
+
 cd mpir-2.6.0
 ./configure
 make
@@ -47,7 +66,10 @@ cd ..
 
 # Install flint (ok, this is perhaps quite a bit strange)
 
-tar xzf flint-1.6.tgz
+if [! -d "flint-1.6"]; then
+    tar xzf flint-1.6.tgz
+fi
+
 cd flint-1.6
 . flint_env
 make library
