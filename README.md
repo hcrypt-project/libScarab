@@ -1,35 +1,44 @@
-Introduction
-============
+# Introduction
 
 This is an implementation of a fully homomorphic encryption scheme using large integers. The mathematical foundation is based on work by C. Gentry [1] for the initial concept as well as N. Smart and F. Vercauteren [2] for the integer-based approach used in this implementation.
 
 The library presented here is beta software and should not be used for any mission critical applications. No warranty expressed or implied is given.
 
-Installation and usage
-======================
+# Installation and usage
 
-Prerequisites
--------------
+## Prerequisites
 
-For Debian-based systems:
+* GMP https://gmplib.org Version 6.0.0 https://gmplib.org/download/gmp/gmp-6.0.0a.tar.lz
+* MPFR http://www.mpfr.org Version 3.1.1 https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.1.tar.bz2
+* MPIR http://www.mpir.org Version 2.6.0 http://www.mpir.org/mpir-2.6.0.tar.bz2
+* Flint http://www.flintlib.org Version 1.6 http://www.flintlib.org/flint-1.6.tgz
 
-```
-sudo apt-get install build-essential m4 lzip unzip
-```
+### For Debian-based systems
 
-Building
---------
+    sudo apt-get install build-essential m4 lzip unzip
+
+And then use <code>scripts/install-dependencies.sh</code> to install the dependencies.
+
+### For Arch Linux
+
+Install <code>base-devel m4 unzip gmp mpfr</code> from official repositories.
+
+Install <code>mpir</code> from AUR. Install version 2.6.0 and pay attention to the comment made by Fincer on 2014-06-20 18:32.
+
+Install flint manually. See the bottom part of <code>scripts/install-dependencies.sh</code> and create /etc/ld.so.conf.d/flint.conf with content /usr/local/lib/flint
+
+
+## Building
 
 The compilation is done using make.
 
-```
-$ make
-```
+    $ make
 
-This builds an integer-fhe executeable in the current directory that runs a test of the library.
-Usage
+This builds an <code>integer-fhe</code> executeable in the current directory that runs a test of the library.
 
-You can use the library as demonstrated in test.c. The following methods are exposed:
+## Usage
+
+You can use the library as demonstrated in <code>test.c</code>. The following methods are exposed:
 function prototype 	meaning
 
 ```
@@ -43,8 +52,7 @@ fhe_fulladd(mpz_t sum, mpz_t c_out, mpz_t a, mpz_t b, mpz_t c_in, fhe_pk_t pk); 
 fhe_halfadd(mpz_t sum, mpz_t c_out, mpz_t a, mpz_t b, fhe_pk_t pk); 	            // Add with carry out
 ```
 
-References
-==========
+# References
 
 [1] C. Gentry, A fully homomorphic encryption scheme
 
@@ -52,8 +60,7 @@ References
 
 [3] H. Perl, M. Brenner and M. Smith, POSTER: An Implementation of the Fully Homomorphic Smart-Vercauteren Crypto-System
 
-License
-=======
+# License
 
 The source code is published under a MIT license:
 
