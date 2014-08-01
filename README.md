@@ -8,6 +8,8 @@ The library presented here is beta software and should not be used for any missi
 
 ## Prerequisites
 
+The library depends on the following libraries:
+
 * GMP https://gmplib.org Version 6.0.0 https://gmplib.org/download/gmp/gmp-6.0.0a.tar.lz
 * MPFR http://www.mpfr.org Version 3.1.1 https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.1.tar.bz2
 * MPIR http://www.mpir.org Version 2.6.0 http://www.mpir.org/mpir-2.6.0.tar.bz2
@@ -15,17 +17,14 @@ The library presented here is beta software and should not be used for any missi
 
 ### For Debian-based systems
 
-    sudo apt-get install build-essential m4 lzip unzip
-
-And then use <code>scripts/install-dependencies.sh</code> to install the dependencies.
+* <code>sudo apt-get install build-essential m4 lzip unzip</code>
+* Use <code>./scripts/install-dependencies.sh</code> from this repository to install the dependencies.
 
 ### For Arch Linux
 
-Install <code>base-devel m4 unzip gmp mpfr</code> from official repositories.
-
-Install <code>mpir</code> from AUR. Install version 2.6.0 and pay attention to the comment made by Fincer on 2014-06-20 18:32.
-
-Install flint manually. See the bottom part of <code>scripts/install-dependencies.sh</code> and create /etc/ld.so.conf.d/flint.conf with content /usr/local/lib/flint
+* Install <code>base-devel m4 unzip gmp mpfr</code> from official repositories.
+* Install <code>mpir</code> from AUR. Install version 2.6.0 and pay attention to the comment made by Fincer on 2014-06-20 18:32.
+* Install Flint manually. See the bottom part of <code>./scripts/install-dependencies.sh</code> and create <code>/etc/ld.so.conf.d/locallib.conf</code> with content <code>/usr/local/lib</code> and run <code>ldconfig</code> as root.
 
 
 ## Building
@@ -34,22 +33,21 @@ The compilation is done using make.
 
     $ make
 
-This builds an <code>integer-fhe</code> executeable in the current directory that runs a test of the library.
+This builds an executable <code>bin/integer-fhe</code> that runs a test of the library and a shared library file in <code>build/libscarab.so</code>.
 
 ## Usage
 
 You can use the library as demonstrated in <code>test.c</code>. The following methods are exposed:
-function prototype 	meaning
 
 ```
-fhe_keygen(fhe_pk_t pk, fhe_sk_t sk); 	             // Generate a keypair
-fhe_encrypt(mpz_t c, fhe_pk_t pk, int m); 	         // Encrypt a message (0 or 1)
-fhe_decrypt(mpz_t c, fhe_sk_t sk);                   // Decrypt a cyphertext
+fhe_keygen(fhe_pk_t pk, fhe_sk_t sk);                    // Generate a keypair
+fhe_encrypt(mpz_t c, fhe_pk_t pk, int m);                // Encrypt a message (0 or 1)
+fhe_decrypt(mpz_t c, fhe_sk_t sk);                       // Decrypt a cyphertext
 fhe_recrypt(mpz_t c, fhe_pk_t pk, fhe_sk_t sk); 	 // Recrypt a cyphertext (“refreshing” it)
-fhe_add(mpz_t res, mpz_t a, mpz_t b, fhe_pk_t pk); 	 // Add cyphertexts (= XOR)
-fhe_mul(mpz_t res, mpz_t a, mpz_t b, fhe_pk_t pk); 	 // Multiply cyphertexts (= AND)
-fhe_fulladd(mpz_t sum, mpz_t c_out, mpz_t a, mpz_t b, mpz_t c_in, fhe_pk_t pk); 	// Add with carry in and carry out
-fhe_halfadd(mpz_t sum, mpz_t c_out, mpz_t a, mpz_t b, fhe_pk_t pk); 	            // Add with carry out
+fhe_add(mpz_t res, mpz_t a, mpz_t b, fhe_pk_t pk);       // Add cyphertexts (= XOR)
+fhe_mul(mpz_t res, mpz_t a, mpz_t b, fhe_pk_t pk);       // Multiply cyphertexts (= AND)
+fhe_fulladd(mpz_t sum, mpz_t c_out, mpz_t a, mpz_t b, mpz_t c_in, fhe_pk_t pk);  // Add with carry in and carry out
+fhe_halfadd(mpz_t sum, mpz_t c_out, mpz_t a, mpz_t b, fhe_pk_t pk);  // Add with carry out
 ```
 
 # References

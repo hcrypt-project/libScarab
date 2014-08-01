@@ -37,6 +37,7 @@ cd gmp-6.0.0
 make
 make check
 sudo make install
+sudo ldconfig
 cd ..
 
 # Install mpfr
@@ -49,6 +50,7 @@ cd mpfr-3.1.1
 make
 make check
 sudo make install
+sudo ldconfig
 cd ..
 
 # Install mpir
@@ -62,6 +64,7 @@ cd mpir-2.6.0
 make
 make check
 sudo make install
+sudo ldconfig
 cd ..
 
 # Install flint (ok, this is perhaps quite a bit strange)
@@ -77,5 +80,6 @@ sudo cp libflint.so /usr/local/lib
 sudo cp *.h /usr/local/include
 sudo mkdir -p /usr/local/include/zn_poly/src
 sudo cp zn_poly/include/*.h /usr/local/include/zn_poly/src/
+sudo ldconfig
 cd ..
 
