@@ -4,6 +4,7 @@ This is an implementation of a fully homomorphic encryption scheme using large i
 
 The library presented here is beta software and should not be used for any mission critical applications. No warranty expressed or implied is given.
 
+
 # Installation and usage
 
 ## Prerequisites
@@ -24,16 +25,24 @@ The library depends on the following libraries:
 
 * Install <code>base-devel m4 unzip gmp mpfr</code> from official repositories.
 * Install <code>mpir</code> from AUR. Install version 2.6.0 and pay attention to the comment made by Fincer on 2014-06-20 18:32.
-* Install Flint manually. See the bottom part of <code>./scripts/install-dependencies.sh</code> and create <code>/etc/ld.so.conf.d/locallib.conf</code> with content <code>/usr/local/lib</code> and run <code>ldconfig</code> as root.
+* Install Flint manually: Execute the according part at the bottom of <code>./scripts/install-dependencies.sh</code>, but before create <code>/etc/ld.so.conf.d/locallib.conf</code> with just one line of content: <code>/usr/local/lib</code>.
 
 
-## Building
+## Build
 
 The compilation is done using make.
 
     $ make
 
 This builds an executable <code>bin/integer-fhe</code> that runs a test of the library and a shared library file in <code>build/libscarab.so</code>.
+
+
+## Install
+
+    $ sudo make install
+
+will place <code>./build/libscarab.so</code> in <code>/usr/local/lib</code> and run <code>ldconfig</code>.
+
 
 ## Usage
 
@@ -50,6 +59,21 @@ fhe_fulladd(mpz_t sum, mpz_t c_out, mpz_t a, mpz_t b, mpz_t c_in, fhe_pk_t pk); 
 fhe_halfadd(mpz_t sum, mpz_t c_out, mpz_t a, mpz_t b, fhe_pk_t pk);  // Add with carry out
 ```
 
+## Uninstall
+
+    $ sudo make uninstall
+
+will remove the library from <code>/usr/local/lib</code>.
+
+### Uninstall dependencies
+
+If you used <code>./scripts/install-dependencies</code>, you can uninstall them using
+
+   $ ./scripts/uninstall-dependencies
+
+This will basically call <code>sudo make uninstall</code> for each of GMP, MPFR and MPIR and undo the commands executed for the installation of Flint.
+
+
 # References
 
 [1] C. Gentry, A fully homomorphic encryption scheme
@@ -57,6 +81,7 @@ fhe_halfadd(mpz_t sum, mpz_t c_out, mpz_t a, mpz_t b, fhe_pk_t pk);  // Add with
 [2] N. Smart and F. Vercauteren, Fully Homomorphic Encryption with Relatively Small Key and Ciphertext Sizes
 
 [3] H. Perl, M. Brenner and M. Smith, POSTER: An Implementation of the Fully Homomorphic Smart-Vercauteren Crypto-System
+
 
 # License
 

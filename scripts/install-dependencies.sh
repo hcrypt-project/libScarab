@@ -21,13 +21,13 @@ if [ ! -f "mpir-2.6.0.tar.bz2" ]; then
     wget http://www.mpir.org/mpir-2.6.0.tar.bz2
 fi
 
-if [ ! -f "mpfr-3.1.1.tar.bz2"]; then
+if [ ! -f "mpfr-3.1.1.tar.bz2" ]; then
     wget https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.1.tar.bz2
 fi
 
 # Install GMP
 
-if [! -d "gmp-6.0.0"]; then
+if [ ! -d "gmp-6.0.0" ]; then
     lzip -d gmp-6.0.0a.tar.lz
     tar xf gmp-6.0.0a.tar
 fi
@@ -42,7 +42,7 @@ cd ..
 
 # Install mpfr
 
-if [! -d "mpfr-3.1.1"]; then
+if [ ! -d "mpfr-3.1.1" ]; then
     tar xjf mpfr-3.1.1.tar.bz2
 fi
 
@@ -55,7 +55,7 @@ cd ..
 
 # Install mpir
 
-if [! -d "mpir-2.6.0"]; then
+if [ ! -d "mpir-2.6.0" ]; then
     tar xjf mpir-2.6.0.tar.bz2
 fi
 
@@ -69,7 +69,7 @@ cd ..
 
 # Install flint (ok, this is perhaps quite a bit strange)
 
-if [! -d "flint-1.6"]; then
+if [ ! -d "flint-1.6" ]; then
     tar xzf flint-1.6.tgz
 fi
 

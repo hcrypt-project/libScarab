@@ -3,8 +3,14 @@ CC        = gcc
 SRCDIR    = src
 BINDIR    = bin
 BUILDDIR  = build
+
+PREFIX_LIB = /usr/local/lib
+
 TARGET    = $(BINDIR)/integer-fhe
-LIBRARY   = $(BUILDDIR)/libscarab.so
+
+LIBRARY_FILENAME = libscarab.so
+LIBRARY   = $(BUILDDIR)/$(LIBRARY_FILENAME)
+
 
 CFLAGS    = -Wall -g3 -ggdb -std=c99 -I/usr/local/include -I/usr/local/include/libflint -L/usr/local/lib
 LDFLAGS  += -lgmp -lflint
@@ -24,3 +30,11 @@ clean:
 $(LIBRARY):
 	mkdir -p $(BUILDDIR)
 	$(CC) -fPIC -shared -o $(LIBRARY) $(SOURCES) $(CFLAGS) $(LDFLAGS)
+
+install:
+	cp $(LIBRARY) $(PREFIX_LIB)/
+	ldconfig
+
+uninstall:
+	rm $(PREFIX_LIB)/$(LIBRARY_FILENAME)
+	ldconfig
