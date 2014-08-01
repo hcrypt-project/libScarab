@@ -69,7 +69,7 @@ will remove the library from <code>/usr/local/lib</code>.
 
 If you used <code>./scripts/install-dependencies</code>, you can uninstall them using
 
-   $ ./scripts/uninstall-dependencies
+    $ ./scripts/uninstall-dependencies
 
 This will basically call <code>sudo make uninstall</code> for each of GMP, MPFR and MPIR and undo the commands executed for the installation of Flint.
 
