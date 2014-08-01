@@ -19,9 +19,8 @@ $(TARGET): $(OBJECTS)
 	$(CC) -o $(TARGET) $(SOURCES) $(CFLAGS) $(LDFLAGS)
 
 clean:
-	rm -f $(OBJECTS) integer-fhe
-	rm -r lib/*
-	rm -r $(LIBRARY)
+	rm -r $(BINDIR) $(BUILDDIR)
 
 $(LIBRARY):
+	mkdir -p $(BUILDDIR)
 	$(CC) -fPIC -shared -o $(LIBRARY) $(SOURCES) $(CFLAGS) $(LDFLAGS)
