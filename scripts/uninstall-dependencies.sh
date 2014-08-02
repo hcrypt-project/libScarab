@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 #
 # Download and build dependencies
 #
