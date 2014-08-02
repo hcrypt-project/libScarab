@@ -49,6 +49,7 @@ if [ ! -d "mpfr-3.1.1" ]; then
 fi
 
 cd mpfr-3.1.1
+./configure
 make
 make check
 sudo make install
