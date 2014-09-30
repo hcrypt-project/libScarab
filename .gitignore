@@ -63,3 +63,7 @@ $RECYCLE.BIN/
 Session.vim
 .netrwhist
 *~
+
+### KDevelop4 ###
+*.kdev4
+.kdev4/
