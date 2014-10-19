@@ -7,6 +7,8 @@ The library presented here is beta software and should not be used for any missi
 
 # Installation and usage
 
+First, clone this repository on your machine: <code>git clone https://github.com/blindstore/libScarab.git</code>.
+
 ## Prerequisites
 
 The library depends on the following libraries:
@@ -27,6 +29,10 @@ The library depends on the following libraries:
 * Install <code>mpir</code> from AUR. Install version 2.6.0 and pay attention to the comment made by Fincer on 2014-06-20 18:32.
 * Install Flint manually: Execute the according part at the bottom of <code>./scripts/install-dependencies.sh</code>, but before create <code>/etc/ld.so.conf.d/locallib.conf</code> with just one line of content: <code>/usr/local/lib</code>.
 
+### For Mac OS
+
+* You can install <code>lzip gmp</code> with <code>brew</code>
+* Install the other dependencies using <code>./scripts/install-dependencies.sh</code> 
 
 ## Build
 
